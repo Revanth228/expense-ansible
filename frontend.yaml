@@ -22,5 +22,5 @@
   - name: creating the directories
     ansible.builtin.file:
      path: /usr/share/nginx/html
-     state: present
+     directory: present
 
