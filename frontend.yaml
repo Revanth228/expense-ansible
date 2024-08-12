@@ -1,0 +1,19 @@
+- name: configure front end server
+  become: yes
+  hosts: frontend
+  tasks:
+  - name: installing nginx
+    ansible.builtin.dnf:
+     name: ngnix
+     state: installed
+
+  - name: start and enable nginx
+    ansible.builtin.service:
+     name: nginx
+     state: started
+     enable: yes
+  
+  - name: remove the index files
+    ansible.builtin.file:
+     path: /usr/share/nginx/html/*
+     state: absent
