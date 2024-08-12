@@ -32,11 +32,10 @@
 
   - name: copy backend cofig
     ansible.builtin.copy:
-    src: expense.config
-    dest: /etc/nginx/default.d/expense.conf
+     src: expense.config
+     dest: /etc/nginx/default.d/expense.conf
 
   - name: restart nginx
     ansible.builtin.service:
      name: nginx
      state: restarted
-     
